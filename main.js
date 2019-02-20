@@ -1,4 +1,5 @@
 // Boek constructor en prototype
+
 function Boek(boekData) {
     this.titel = boekData.titel || 'titel';
     this.auteur = boekData.auteur || 'auteur';
@@ -7,19 +8,17 @@ function Boek(boekData) {
     this.likes = boekData.likes || 0
 };
 
-Boek.prototype.dislike = function (){
-    console.log(this)
+Boek.prototype.dislike = function (){      // dislike: haalt 1 van het totale aantal likes af. Aantal likes mag niet minder dan 0 zijn
     if (this.likes > 0) {
       this.likes--;
     };
 };
 
-Boek.prototype.like = function() {
-    console.log(this)
+Boek.prototype.like = function() {        // like: telt 1 op bij het totale aantal likes
     this.likes++;
 };
 
-Boek.prototype.toString = function () {
+Boek.prototype.toString = function () {   // toString: geeft een string representatie van een boek.
       return (
         this.titel +
         ' has been written by ' + this.auteur +
@@ -31,14 +30,6 @@ Boek.prototype.toString = function () {
    );
 };
 
-
-// **************************************************
-// Maak boek prototype functies:
-
-// dislike: haalt 1 van het totale aantal likes af. Aantal likes mag niet minder dan 0 zijn
-// like: telt 1 op bij het totale aantal likes
-// toString: geeft een string representatie van een boek. Bijvoorbeeld: "JavaScript for Cats van Max Ogden bevat 201 pagina's en heeft 34 likes"
-// **************************************************
 
 var boekenLijst = [];
 boekenLijst.push(new Boek({titel: 'JavaScript: The Good Parts', auteur:'Douglas Crockford', aantalAuteurs: 1, paginas: 234, likes: 10}));
